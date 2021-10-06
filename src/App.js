@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import Employee from './Employee'
 import Educator from './Employee2'
+import Book from './Book'
 
 export default class Card extends React.Component {
   constructor() {
@@ -26,14 +27,37 @@ export default class Card extends React.Component {
     
 
     return  <Educator/>
-}
+  }
+
+  fetchEmployees3 = () => {
+    const book1 = {
+      "title": "Angels and Demons",
+      "publisher": "Penguin Random House",
+      "author": "Dan Brown",
+      "price": 409,
+      "prodId": 2012
+      }
+  
+    const book2 = {
+    "title": "Norse Mythology",
+    "publisher": "Bloomsbury Publishing",
+    "author": "Neil Gaiman",
+    "price": 300,
+    "prodId": 2019
+    }
+  
+  var bookDetails = [book1, book2];
+
+    return bookDetails.map(book => <Book key={book.prodId} book={book}/>)
+
+  }
 
   render() {
       return (
           <div>
               <h3 className="text-primary"> Course Details</h3>
-              
-              {this.fetchEmployees2()}
+            
+              {this.fetchEmployees3()}
           </div>
       )
   }

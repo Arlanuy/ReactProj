@@ -36,6 +36,9 @@ class Employee extends React.Component {
             <button className="btn btn-success"
             onClick={() => {this.setState({ achievements: this.props.emp.achievements});
         }}>View</button>
+        <button className="btn btn-success"
+        onClick={() => {this.setState({ achievements: null});
+        }}>Hide</button>
         {redirect}
             </div>
         </div>
