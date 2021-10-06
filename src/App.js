@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import Employee from './Employee'
+import Educator from './Employee2'
 
 export default class Card extends React.Component {
   constructor() {
@@ -21,12 +22,18 @@ export default class Card extends React.Component {
       return employeeDetails.map(emp => <Employee key={emp.empId} emp={emp}/>)
   }
 
+  fetchEmployees2 = () => {
+    
+
+    return  <Educator/>
+}
+
   render() {
       return (
           <div>
-              <h3 className="text-primary"> Employee Details</h3>
+              <h3 className="text-primary"> Course Details</h3>
               
-              {this.fetchEmployees()}
+              {this.fetchEmployees2()}
           </div>
       )
   }
