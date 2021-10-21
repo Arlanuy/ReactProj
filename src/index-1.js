@@ -27,20 +27,6 @@ class Item extends React.Component {
      
     }
 
-    decreaseQuantity=(event) => {
-        this.setState((prevState) => {return {qty:prevState.qty - 1}})
-       
-        var action= {
-            type: 'DECREASE_QTY',
-            data: {
-                unitPrice: this.props.price,
-                quantity: this.state.quantity
-            }
-        };
-        store.dispatch(action);
-     
-    }
-
     render() {
         return (
             <div>
@@ -50,7 +36,7 @@ class Item extends React.Component {
             
                 <div className="input-group">
                     <div className="input-group-prepend">
-                        <button className="btn btn-danger" onClick={this.decreaseQuantity} type="button">-</button>
+                        <button className="btn btn-danger" type="button">-</button>
                     </div>
                     <input type="text" value={this.state.qty} />
                     <div className="input-group-append">
@@ -75,7 +61,7 @@ class Checkout extends React.Component {
         store.subscribe(() => this.setState({totalPrice:store.getState().price}) );
         return(
             <div>
-                <h5>Total price is :{this.state.totalPrice} </h5>
+                <h5>Total price is : </h5>
             </div>
         )
     }
@@ -86,8 +72,7 @@ function renderPage() {
     return (
         <div>
             <Item itemId="100" itemName="Mobile" price="100" quantity="0"/><hr/>
-            <Item itemId="200" itemName="Shirt" price="200" quantity="0"/>
-            <Checkout/>
+            <Item itemId="200" itemName="Shirt" price="20" quantity="0"/>
         </div>
     )
 }
